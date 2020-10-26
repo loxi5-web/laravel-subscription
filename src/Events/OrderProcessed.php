@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier\Events;
+namespace Loxi5\Subscription\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Laravel\Cashier\Order\Order;
+use Loxi5\Subscription\Order\Order;
 
 class OrderProcessed
 {
@@ -19,7 +19,7 @@ class OrderProcessed
     /**
      * OrderProcessed constructor.
      *
-     * @param \Laravel\Cashier\Order\Order $order
+     * @param \Loxi5\Subscription\Order\Order $order
      */
     public function __construct(Order $order)
     {

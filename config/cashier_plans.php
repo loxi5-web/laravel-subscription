@@ -1,7 +1,7 @@
 <?php
 
-use Laravel\Cashier\Coupon\CouponOrderItemPreprocessor as ProcessCoupons;
-use Laravel\Cashier\Order\PersistOrderItemsPreprocessor as PersistOrderItems;
+use Loxi5\Subscription\Coupon\CouponOrderItemPreprocessor as ProcessCoupons;
+use Loxi5\Subscription\Order\PersistOrderItemsPreprocessor as PersistOrderItems;
 
 return [
 

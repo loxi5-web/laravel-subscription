@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Cashier\FirstPayment;
+namespace Loxi5\Subscription\FirstPayment;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Laravel\Cashier\Cashier;
-use Laravel\Cashier\FirstPayment\Actions\ActionCollection;
-use Laravel\Cashier\Mollie\Contracts\CreateMolliePayment;
-use Laravel\Cashier\Mollie\Contracts\UpdateMolliePayment;
+use Loxi5\Subscription\Cashier;
+use Loxi5\Subscription\FirstPayment\Actions\ActionCollection;
+use Loxi5\Subscription\Mollie\Contracts\CreateMolliePayment;
+use Loxi5\Subscription\Mollie\Contracts\UpdateMolliePayment;
 use Mollie\Api\Types\SequenceType;
 
 class FirstPaymentBuilder

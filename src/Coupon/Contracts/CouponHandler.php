@@ -1,23 +1,23 @@
 <?php
 
-namespace Laravel\Cashier\Coupon\Contracts;
+namespace Loxi5\Subscription\Coupon\Contracts;
 
-use Laravel\Cashier\Coupon\Coupon;
-use Laravel\Cashier\Coupon\RedeemedCoupon;
-use Laravel\Cashier\Exceptions\CouponException;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Coupon\Coupon;
+use Loxi5\Subscription\Coupon\RedeemedCoupon;
+use Loxi5\Subscription\Exceptions\CouponException;
+use Loxi5\Subscription\Order\OrderItemCollection;
 
 interface CouponHandler
 {
     /**
      * @param array $context
-     * @return \Laravel\Cashier\Coupon\Contracts\CouponHandler
+     * @return \Loxi5\Subscription\Coupon\Contracts\CouponHandler
      */
     public function withContext(array $context);
 
     /**
-     * @param \Laravel\Cashier\Coupon\Coupon $coupon
-     * @param \Laravel\Cashier\Coupon\Contracts\AcceptsCoupons $model
+     * @param \Loxi5\Subscription\Coupon\Coupon $coupon
+     * @param \Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons $model
      * @return bool
      * @throws \Throwable|CouponException
      */
@@ -26,15 +26,15 @@ interface CouponHandler
     /**
      * Apply the coupon to the OrderItemCollection
      *
-     * @param \Laravel\Cashier\Coupon\RedeemedCoupon $redeemedCoupon
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Coupon\RedeemedCoupon $redeemedCoupon
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function handle(RedeemedCoupon $redeemedCoupon, OrderItemCollection $items);
 
     /**
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function getDiscountOrderItems(OrderItemCollection $items);
 }

@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Cashier\FirstPayment\Actions;
+namespace Loxi5\Subscription\FirstPayment\Actions;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Coupon\Coupon;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Coupon\Coupon;
+use Loxi5\Subscription\Order\OrderItemCollection;
 
 class ApplySubscriptionCouponToPayment extends BaseNullAction
 {
     /**
-     * @var \Laravel\Cashier\Coupon\Coupon
+     * @var \Loxi5\Subscription\Coupon\Coupon
      */
     protected $coupon;
 
     /**
      * The coupon's (discount) OrderItems
-     * @var \Laravel\Cashier\Order\OrderItemCollection
+     * @var \Loxi5\Subscription\Order\OrderItemCollection
      */
     protected $orderItems;
 
@@ -23,8 +23,8 @@ class ApplySubscriptionCouponToPayment extends BaseNullAction
      * ApplySubscriptionCouponToPayment constructor.
      *
      * @param \Illuminate\Database\Eloquent\Model $owner
-     * @param \Laravel\Cashier\Coupon\Coupon $coupon
-     * @param \Laravel\Cashier\Order\OrderItemCollection $orderItems
+     * @param \Loxi5\Subscription\Coupon\Coupon $coupon
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $orderItems
      */
     public function __construct(Model $owner, Coupon $coupon, OrderItemCollection $orderItems)
     {

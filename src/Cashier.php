@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Cashier;
+namespace Loxi5\Subscription;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Order\Order;
-use Laravel\Cashier\Order\OrderItem;
+use Loxi5\Subscription\Order\Order;
+use Loxi5\Subscription\Order\OrderItem;
 use Money\Currencies\ISOCurrencies;
 use Money\Formatter\IntlMoneyFormatter;
 use Money\Money;
@@ -17,21 +17,21 @@ class Cashier
      *
      * @var string
      */
-    protected static $currency = 'eur';
+    protected static $currency = 'usd';
 
     /**
      * The current currency symbol.
      *
      * @var string
      */
-    protected static $currencySymbol = '€';
+    protected static $currencySymbol = '$';
 
     /**
      * The current currency symbol.
      *
      * @var string
      */
-    protected static $currencyLocale = 'de_DE';
+    protected static $currencyLocale = 'en_US';
 
     /**
      * The custom currency formatter.

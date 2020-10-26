@@ -1,25 +1,25 @@
 <?php
 
-namespace Laravel\Cashier;
+namespace Loxi5\Subscription;
 
 use Dompdf\Options;
 use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
-use Laravel\Cashier\Coupon\Contracts\CouponRepository;
-use Laravel\Cashier\Coupon\RedeemedCoupon;
-use Laravel\Cashier\Credit\Credit;
-use Laravel\Cashier\Events\MandateClearedFromBillable;
-use Laravel\Cashier\Exceptions\InvalidMandateException;
-use Laravel\Cashier\Mollie\Contracts\CreateMollieCustomer;
-use Laravel\Cashier\Mollie\Contracts\GetMollieCustomer;
-use Laravel\Cashier\Mollie\Contracts\GetMollieMandate;
-use Laravel\Cashier\Order\Invoice;
-use Laravel\Cashier\Order\Order;
-use Laravel\Cashier\Order\OrderItem;
-use Laravel\Cashier\Plan\Contracts\PlanRepository;
-use Laravel\Cashier\SubscriptionBuilder\FirstPaymentSubscriptionBuilder;
-use Laravel\Cashier\SubscriptionBuilder\MandatedSubscriptionBuilder;
-use Laravel\Cashier\Traits\PopulatesMollieCustomerFields;
+use Loxi5\Subscription\Coupon\Contracts\CouponRepository;
+use Loxi5\Subscription\Coupon\RedeemedCoupon;
+use Loxi5\Subscription\Credit\Credit;
+use Loxi5\Subscription\Events\MandateClearedFromBillable;
+use Loxi5\Subscription\Exceptions\InvalidMandateException;
+use Loxi5\Subscription\Mollie\Contracts\CreateMollieCustomer;
+use Loxi5\Subscription\Mollie\Contracts\GetMollieCustomer;
+use Loxi5\Subscription\Mollie\Contracts\GetMollieMandate;
+use Loxi5\Subscription\Order\Invoice;
+use Loxi5\Subscription\Order\Order;
+use Loxi5\Subscription\Order\OrderItem;
+use Loxi5\Subscription\Plan\Contracts\PlanRepository;
+use Loxi5\Subscription\SubscriptionBuilder\FirstPaymentSubscriptionBuilder;
+use Loxi5\Subscription\SubscriptionBuilder\MandatedSubscriptionBuilder;
+use Loxi5\Subscription\Traits\PopulatesMollieCustomerFields;
 use Mollie\Api\Exceptions\ApiException;
 use Mollie\Api\Resources\Customer;
 use Mollie\Api\Types\MandateMethod;
@@ -43,7 +43,7 @@ trait Billable
      * Get a subscription instance by name for the billable model.
      *
      * @param  string  $subscription
-     * @return \Laravel\Cashier\Subscription|null
+     * @return \Loxi5\Subscription\Subscription|null
      */
     public function subscription($subscription = 'default')
     {
@@ -62,9 +62,9 @@ trait Billable
      * @param string $subscription
      * @param string $plan
      * @param array $firstPaymentOptions
-     * @return \Laravel\Cashier\SubscriptionBuilder\Contracts\SubscriptionBuilder
-     * @throws \Laravel\Cashier\Exceptions\InvalidMandateException
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @return \Loxi5\Subscription\SubscriptionBuilder\Contracts\SubscriptionBuilder
+     * @throws \Loxi5\Subscription\Exceptions\InvalidMandateException
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      * @throws \Throwable
      */
     public function newSubscription($subscription, $plan, $firstPaymentOptions = [])
@@ -93,8 +93,8 @@ trait Billable
      * @param $subscription
      * @param $plan
      * @param array $firstPaymentOptions
-     * @return \Laravel\Cashier\SubscriptionBuilder\FirstPaymentSubscriptionBuilder
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @return \Loxi5\Subscription\SubscriptionBuilder\FirstPaymentSubscriptionBuilder
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      */
     public function newSubscriptionViaMollieCheckout($subscription, $plan, $firstPaymentOptions = [])
     {
@@ -107,9 +107,9 @@ trait Billable
      * @param string $mandateId
      * @param  string $subscription
      * @param  string $plan
-     * @return \Laravel\Cashier\SubscriptionBuilder\MandatedSubscriptionBuilder
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
-     * @throws \Throwable|\Laravel\Cashier\Exceptions\InvalidMandateException
+     * @return \Loxi5\Subscription\SubscriptionBuilder\MandatedSubscriptionBuilder
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
+     * @throws \Throwable|\Loxi5\Subscription\Exceptions\InvalidMandateException
      */
     public function newSubscriptionForMandateId($mandateId, $subscription, $plan)
     {
@@ -464,7 +464,7 @@ trait Billable
 
     /**
      * @return bool
-     * @throws \Laravel\Cashier\Exceptions\InvalidMandateException
+     * @throws \Loxi5\Subscription\Exceptions\InvalidMandateException
      */
     public function guardMollieMandate()
     {
@@ -474,7 +474,7 @@ trait Billable
     }
 
     /**
-     * @return \Laravel\Cashier\Billable
+     * @return \Loxi5\Subscription\Billable
      */
     public function clearMollieMandate()
     {
@@ -500,8 +500,8 @@ trait Billable
      * @param bool $revokeOtherCoupons
      * @return $this
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
-     * @throws \Laravel\Cashier\Exceptions\CouponNotFoundException
-     * @throws \Throwable|\Laravel\Cashier\Exceptions\CouponException
+     * @throws \Loxi5\Subscription\Exceptions\CouponNotFoundException
+     * @throws \Throwable|\Loxi5\Subscription\Exceptions\CouponException
      */
     public function redeemCoupon($coupon, $subscription = 'default', $revokeOtherCoupons = true)
     {
@@ -511,7 +511,7 @@ trait Billable
             throw new InvalidArgumentException('Unable to apply coupon. Subscription does not exist.');
         }
 
-        /** @var \Laravel\Cashier\Coupon\Coupon $coupon */
+        /** @var \Loxi5\Subscription\Coupon\Coupon $coupon */
         $coupon = app()->make(CouponRepository::class)->findOrFail($coupon);
         $coupon->validateFor($subscription);
 

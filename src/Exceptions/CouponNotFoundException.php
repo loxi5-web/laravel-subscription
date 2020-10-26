@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Exceptions;
+namespace Loxi5\Subscription\Exceptions;
 
 use Throwable;
 

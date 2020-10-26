@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Cashier\Order\Contracts;
+namespace Loxi5\Subscription\Order\Contracts;
 
-use Laravel\Cashier\Order\OrderItem;
+use Loxi5\Subscription\Order\OrderItem;
 
 interface PreprocessesOrderItems
 {
@@ -10,7 +10,7 @@ interface PreprocessesOrderItems
      * Called right before processing the order item into an order.
      *
      * @param OrderItem $item
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public static function preprocessOrderItem(OrderItem $item);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Order;
+namespace Loxi5\Subscription\Order;
 
 trait ConvertsToMoney
 {

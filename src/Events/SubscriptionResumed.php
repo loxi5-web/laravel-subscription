@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Cashier\Events;
+namespace Loxi5\Subscription\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Laravel\Cashier\Subscription;
+use Loxi5\Subscription\Subscription;
 
 class SubscriptionResumed
 {
     use SerializesModels;
 
     /**
-     * @var \Laravel\Cashier\Subscription
+     * @var \Loxi5\Subscription\Subscription
      */
     public $subscription;
 

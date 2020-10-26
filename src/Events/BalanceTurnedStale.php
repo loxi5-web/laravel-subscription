@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Cashier\Events;
+namespace Loxi5\Subscription\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Laravel\Cashier\Credit\Credit;
+use Loxi5\Subscription\Credit\Credit;
 
 class BalanceTurnedStale
 {
     use SerializesModels;
 
     /**
-     * @var \Laravel\Cashier\Credit\Credit
+     * @var \Loxi5\Subscription\Credit\Credit
      */
     public $credit;
 

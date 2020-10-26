@@ -67,7 +67,7 @@ Once you have pulled in the package:
 
 6. Prepare the billable model (typically the default Laravel User model):
     
-    - Add the `Laravel\Cashier\Billable` trait.
+    - Add the `Loxi5\Subscription\Billable` trait.
     
     - Optionally, override the method `mollieCustomerFields()` to configure what billable model fields are stored while creating the Mollie Customer.
     Out of the box the `mollieCustomerFields()` method uses the default Laravel User model fields:
@@ -82,7 +82,7 @@ Once you have pulled in the package:
     ```
     Learn more about storing data on the Mollie Customer [here](https://docs.mollie.com/reference/v2/customers-api/create-customer#parameters).
     
-    - Implement `Laravel\Cashier\Order\Contracts\ProvidesInvoiceInformation` interface. For example:
+    - Implement `Loxi5\Subscription\Order\Contracts\ProvidesInvoiceInformation` interface. For example:
     
     ```php
    /**
@@ -144,7 +144,7 @@ Here's a basic controller example for creating the subscription:
 ```php
 namespace App\Http\Controllers;
 
-use Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse;
+use Loxi5\Subscription\SubscriptionBuilder\RedirectToCheckoutResponse;
 use Illuminate\Support\Facades\Auth;
 
 class CreateSubscriptionController extends Controller
@@ -447,7 +447,7 @@ $user->newSubscription('main', 'monthly')->create();
 
 Cashier automatically handles subscription cancellation on failed charges.
 
-Additionally, listen for the following events (in the `Laravel\Cashier\Events` namespace) to add app specific behaviour:
+Additionally, listen for the following events (in the `Loxi5\Subscription\Events` namespace) to add app specific behaviour:
 - `OrderPaymentPaid` and `OrderPaymentFailed`
 - `FirstPaymentPaid` and `FirstPaymentFailed`
 
@@ -457,7 +457,7 @@ Coming soon.
 
 ### Invoices
 
-Listen for the `OrderInvoiceAvailable` event (in the `Laravel\Cashier\Events` namespace).
+Listen for the `OrderInvoiceAvailable` event (in the `Loxi5\Subscription\Events` namespace).
 When a new order has been processed, you can grab the invoice by
     
 ```php
@@ -543,7 +543,7 @@ class User extends Model
 
 ### All Cashier Events
 
-You can listen for the following events from the Laravel\Cashier\Events namespace:
+You can listen for the following events from the Loxi5\Subscription\Events namespace:
 
 #### `BalanceTurnedStale` event
 The user has a positive account balance, but no active subscriptions. Consider a refund.
@@ -664,13 +664,13 @@ You can load coupons/plans from database, a file or even a JSON API.
 
 For example a simple implementation of plans from the database:
 
-Firstly you create your own implementation of the plan repository and implement `Laravel\Cashier\Plan\Contracts\PlanRepository`.
-Implement the methods according to your needs and make sure you'll return a `Laravel\Cashier\Plan\Contracts\Plan`.
+Firstly you create your own implementation of the plan repository and implement `Loxi5\Subscription\Plan\Contracts\PlanRepository`.
+Implement the methods according to your needs and make sure you'll return a `Loxi5\Subscription\Plan\Contracts\Plan`.
 
 ```php
 use App\Plan;
-use Laravel\Cashier\Exceptions\PlanNotFoundException;
-use Laravel\Cashier\Plan\Contracts\PlanRepository;
+use Loxi5\Subscription\Exceptions\PlanNotFoundException;
+use Loxi5\Subscription\Plan\Contracts\PlanRepository;
 
 class DatabasePlanRepository implements PlanRepository
 {
@@ -682,10 +682,10 @@ class DatabasePlanRepository implements PlanRepository
             return null;
         }
 
-        // Return a \Laravel\Cashier\Plan\Plan by creating one from the database values
+        // Return a \Loxi5\Subscription\Plan\Plan by creating one from the database values
         return $plan->buildCashierPlan();
 
-        // Or if your model implements the contract: \Laravel\Cashier\Plan\Contracts\Plan
+        // Or if your model implements the contract: \Loxi5\Subscription\Plan\Contracts\Plan
         return $plan;
     }
 
@@ -701,14 +701,14 @@ class DatabasePlanRepository implements PlanRepository
 ```
 
 <details>
-<summary>Example Plan model (app/Plan.php) with buildCashierPlan and returns a \Laravel\Cashier\Plan\Plan</summary>
+<summary>Example Plan model (app/Plan.php) with buildCashierPlan and returns a \Loxi5\Subscription\Plan\Plan</summary>
 
 ```php
 <?php
 
 namespace App;
 
-use Laravel\Cashier\Plan\Plan as CashierPlan;
+use Loxi5\Subscription\Plan\Plan as CashierPlan;
 use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
@@ -716,7 +716,7 @@ class Plan extends Model
     /**
      * Builds a Cashier plan from the current model.
      *
-     * @returns \Laravel\Cashier\Plan\Plan
+     * @returns \Loxi5\Subscription\Plan\Plan
      */
     public function buildCashierPlan(): CashierPlan
     {
@@ -746,7 +746,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(\Laravel\Cashier\Plan\Contracts\PlanRepository::class, DatabasePlanRepository::class);
+        $this->app->bind(\Loxi5\Subscription\Plan\Contracts\PlanRepository::class, DatabasePlanRepository::class);
     }
 }
 ```

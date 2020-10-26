@@ -1,32 +1,32 @@
 <?php
 
-namespace Laravel\Cashier\Coupon;
+namespace Loxi5\Subscription\Coupon;
 
 use Illuminate\Support\Arr;
-use Laravel\Cashier\Coupon\Contracts\AcceptsCoupons;
-use Laravel\Cashier\Coupon\Contracts\CouponHandler;
-use Laravel\Cashier\Events\CouponApplied;
-use Laravel\Cashier\Exceptions\CouponException;
-use Laravel\Cashier\Order\OrderItem;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons;
+use Loxi5\Subscription\Coupon\Contracts\CouponHandler;
+use Loxi5\Subscription\Events\CouponApplied;
+use Loxi5\Subscription\Exceptions\CouponException;
+use Loxi5\Subscription\Order\OrderItem;
+use Loxi5\Subscription\Order\OrderItemCollection;
 
 abstract class BaseCouponHandler implements CouponHandler
 {
-    /** @var \Laravel\Cashier\Coupon\AppliedCoupon */
+    /** @var \Loxi5\Subscription\Coupon\AppliedCoupon */
     protected $appliedCoupon;
 
     /** @var array */
     protected $context = [];
 
     /**
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     abstract public function getDiscountOrderItems(OrderItemCollection $items);
 
     /**
-     * @param \Laravel\Cashier\Coupon\Coupon $coupon
-     * @param \Laravel\Cashier\Coupon\Contracts\AcceptsCoupons $model
+     * @param \Loxi5\Subscription\Coupon\Coupon $coupon
+     * @param \Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons $model
      * @return bool
      * @throws \Throwable|CouponException
      */
@@ -38,9 +38,9 @@ abstract class BaseCouponHandler implements CouponHandler
     }
 
     /**
-     * @param \Laravel\Cashier\Coupon\RedeemedCoupon $redeemedCoupon
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Coupon\RedeemedCoupon $redeemedCoupon
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function handle(RedeemedCoupon $redeemedCoupon, OrderItemCollection $items)
     {
@@ -50,9 +50,9 @@ abstract class BaseCouponHandler implements CouponHandler
     }
 
     /**
-     * @param \Laravel\Cashier\Coupon\RedeemedCoupon $redeemedCoupon
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Coupon\RedeemedCoupon $redeemedCoupon
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function apply(RedeemedCoupon $redeemedCoupon, OrderItemCollection $items)
     {
@@ -62,10 +62,10 @@ abstract class BaseCouponHandler implements CouponHandler
     }
 
     /**
-     * @param \Laravel\Cashier\Coupon\Coupon $coupon
-     * @param \Laravel\Cashier\Coupon\Contracts\AcceptsCoupons $model
+     * @param \Loxi5\Subscription\Coupon\Coupon $coupon
+     * @param \Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons $model
      * @throws \Throwable
-     * @throws \Laravel\Cashier\Exceptions\CouponException
+     * @throws \Loxi5\Subscription\Exceptions\CouponException
      */
     public function validateOwnersFirstUse(Coupon $coupon, AcceptsCoupons $model)
     {
@@ -78,8 +78,8 @@ abstract class BaseCouponHandler implements CouponHandler
     }
 
     /**
-     * @param \Laravel\Cashier\Coupon\RedeemedCoupon $redeemedCoupon
-     * @return \Laravel\Cashier\Coupon\AppliedCoupon
+     * @param \Loxi5\Subscription\Coupon\RedeemedCoupon $redeemedCoupon
+     * @return \Loxi5\Subscription\Coupon\AppliedCoupon
      */
     public function markApplied(RedeemedCoupon $redeemedCoupon)
     {
@@ -101,7 +101,7 @@ abstract class BaseCouponHandler implements CouponHandler
      * the order item will be tied to the coupon.
      *
      * @param array $data
-     * @return \Illuminate\Database\Eloquent\Model|\Laravel\Cashier\Order\OrderItem
+     * @return \Illuminate\Database\Eloquent\Model|\Loxi5\Subscription\Order\OrderItem
      */
     protected function makeOrderItem(array $data)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Events;
+namespace Loxi5\Subscription\Events;
 
 use Illuminate\Queue\SerializesModels;
 
@@ -11,7 +11,7 @@ class OrderPaymentFailed
     /**
      * The failed order.
      *
-     * @var \Laravel\Cashier\Order\Order
+     * @var \Loxi5\Subscription\Order\Order
      */
     public $order;
 

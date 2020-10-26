@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Cashier\Coupon;
+namespace Loxi5\Subscription\Coupon;
 
-use Laravel\Cashier\Order\OrderItem;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Order\OrderItem;
+use Loxi5\Subscription\Order\OrderItemCollection;
 use Money\Money;
 
 class FixedDiscountHandler extends BaseCouponHandler
 {
     /**
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function getDiscountOrderItems(OrderItemCollection $items)
     {
@@ -51,7 +51,7 @@ class FixedDiscountHandler extends BaseCouponHandler
     }
 
     /**
-     * @param \Laravel\Cashier\Order\OrderItem $firstItem
+     * @param \Loxi5\Subscription\Order\OrderItem $firstItem
      * @return int
      */
     protected function quantity(OrderItem $firstItem)
@@ -62,7 +62,7 @@ class FixedDiscountHandler extends BaseCouponHandler
     }
 
     /**
-     * @param \Laravel\Cashier\Order\OrderItem $firstItem
+     * @param \Loxi5\Subscription\Order\OrderItem $firstItem
      * @return float|int
      */
     protected function taxPercentage(OrderItem $firstItem)

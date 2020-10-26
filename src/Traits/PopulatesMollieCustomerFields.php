@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Traits;
+namespace Loxi5\Subscription\Traits;
 
 trait PopulatesMollieCustomerFields
 {

@@ -33,7 +33,7 @@ return [
              * The class responsible for validating and applying the coupon discount.
              * Must extend \Cashier\Discount\BaseCouponHandler
              */
-            'handler' => \Laravel\Cashier\Coupon\FixedDiscountHandler::class,
+            'handler' => \Loxi5\Subscription\Coupon\FixedDiscountHandler::class,
 
             /** Any context you want to pass to the handler */
             'context' => [

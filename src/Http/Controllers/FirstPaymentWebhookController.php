@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Cashier\Http\Controllers;
+namespace Loxi5\Subscription\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
-use Laravel\Cashier\Events\FirstPaymentFailed;
-use Laravel\Cashier\Events\FirstPaymentPaid;
-use Laravel\Cashier\FirstPayment\FirstPaymentHandler;
+use Loxi5\Subscription\Events\FirstPaymentFailed;
+use Loxi5\Subscription\Events\FirstPaymentPaid;
+use Loxi5\Subscription\FirstPayment\FirstPaymentHandler;
 use Symfony\Component\HttpFoundation\Response;
 
 class FirstPaymentWebhookController extends BaseWebhookController

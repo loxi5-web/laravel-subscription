@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Console\Commands;
+namespace Loxi5\Subscription\Console\Commands;
 
 use Illuminate\Console\Command;
 

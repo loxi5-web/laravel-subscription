@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Cashier\Coupon;
+namespace Loxi5\Subscription\Coupon;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Order\Contracts\InteractsWithOrderItems;
-use Laravel\Cashier\Order\OrderItem;
+use Loxi5\Subscription\Order\Contracts\InteractsWithOrderItems;
+use Loxi5\Subscription\Order\OrderItem;
 
 /**
  * @method static create(array $array)
@@ -42,7 +42,7 @@ class AppliedCoupon extends Model implements InteractsWithOrderItems
      * Called right before processing the order item into an order.
      *
      * @param OrderItem $item
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public static function preprocessOrderItem(OrderItem $item)
     {

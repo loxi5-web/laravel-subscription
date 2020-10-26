@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier;
+namespace Loxi5\Subscription;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Laravel\Cashier\Order\OrderInvoiceSubscriber;
+use Loxi5\Subscription\Order\OrderInvoiceSubscriber;
 
 class EventServiceProvider extends ServiceProvider
 {

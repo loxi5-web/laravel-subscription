@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Order\Contracts;
+namespace Loxi5\Subscription\Order\Contracts;
 
 use Mollie\Api\Resources\Mandate;
 

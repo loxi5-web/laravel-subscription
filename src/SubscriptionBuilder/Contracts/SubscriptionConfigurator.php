@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\SubscriptionBuilder\Contracts;
+namespace Loxi5\Subscription\SubscriptionBuilder\Contracts;
 
 use Carbon\Carbon;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Cashier\Traits;
+namespace Loxi5\Subscription\Traits;
 
-use Laravel\Cashier\Cashier;
+use Loxi5\Subscription\Cashier;
 use Money\Money;
 
 trait FormatsAmount {

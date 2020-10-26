@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Cashier\Order;
+namespace Loxi5\Subscription\Order;
 
 abstract class BaseOrderItemPreprocessor
 {
     /**
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     abstract public function handle(OrderItemCollection $items);
 }

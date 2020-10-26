@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Cashier;
+namespace Loxi5\Subscription;
 
 use Illuminate\Support\ServiceProvider;
-use Laravel\Cashier\Console\Commands\CashierInstall;
-use Laravel\Cashier\Console\Commands\CashierRun;
-use Laravel\Cashier\Mollie\RegistersMollieInteractions;
-use Laravel\Cashier\Order\Contracts\MinimumPayment as MinimumPaymentContract;
-use Laravel\Cashier\Coupon\ConfigCouponRepository;
-use Laravel\Cashier\Coupon\Contracts\CouponRepository;
-use Laravel\Cashier\Plan\ConfigPlanRepository;
-use Laravel\Cashier\Plan\Contracts\PlanRepository;
+use Loxi5\Subscription\Console\Commands\CashierInstall;
+use Loxi5\Subscription\Console\Commands\CashierRun;
+use Loxi5\Subscription\Mollie\RegistersMollieInteractions;
+use Loxi5\Subscription\Order\Contracts\MinimumPayment as MinimumPaymentContract;
+use Loxi5\Subscription\Coupon\ConfigCouponRepository;
+use Loxi5\Subscription\Coupon\Contracts\CouponRepository;
+use Loxi5\Subscription\Plan\ConfigPlanRepository;
+use Loxi5\Subscription\Plan\Contracts\PlanRepository;
 use Mollie\Laravel\MollieServiceProvider;
 
 class CashierServiceProvider extends ServiceProvider
@@ -30,7 +30,7 @@ class CashierServiceProvider extends ServiceProvider
         $this->mergeConfig();
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'cashier');
 
-        mollie()->addVersionString('MollieLaravelCashier/' . self::PACKAGE_VERSION);
+        mollie()->addVersionString('MollieLoxi5Subscription/' . self::PACKAGE_VERSION);
 
         if ($this->app->runningInConsole()) {
             $this->publishMigrations('cashier-migrations');

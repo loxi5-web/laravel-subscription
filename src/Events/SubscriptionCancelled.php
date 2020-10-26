@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier\Events;
+namespace Loxi5\Subscription\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Laravel\Cashier\Subscription;
+use Loxi5\Subscription\Subscription;
 
 class SubscriptionCancelled
 {

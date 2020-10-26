@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Cashier\Coupon;
+namespace Loxi5\Subscription\Coupon;
 
 use Illuminate\Config\Repository;
-use Laravel\Cashier\Coupon\Contracts\CouponRepository;
-use Laravel\Cashier\Exceptions\CouponNotFoundException;
+use Loxi5\Subscription\Coupon\Contracts\CouponRepository;
+use Loxi5\Subscription\Exceptions\CouponNotFoundException;
 
 class ConfigCouponRepository implements CouponRepository
 {
@@ -56,7 +56,7 @@ class ConfigCouponRepository implements CouponRepository
 
     /**
      * @param string $name
-     * @return \Laravel\Cashier\Coupon\Coupon
+     * @return \Loxi5\Subscription\Coupon\Coupon
      */
     protected function buildCoupon(string $name)
     {

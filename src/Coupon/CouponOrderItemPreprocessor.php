@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Cashier\Coupon;
+namespace Loxi5\Subscription\Coupon;
 
-use Laravel\Cashier\Order\BaseOrderItemPreprocessor;
-use Laravel\Cashier\Order\OrderItem;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Order\BaseOrderItemPreprocessor;
+use Loxi5\Subscription\Order\OrderItem;
+use Loxi5\Subscription\Order\OrderItemCollection;
 
 class CouponOrderItemPreprocessor extends BaseOrderItemPreprocessor
 {
     /**
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function handle(OrderItemCollection $items)
     {

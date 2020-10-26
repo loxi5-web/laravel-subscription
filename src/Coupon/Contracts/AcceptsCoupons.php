@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Coupon\Contracts;
+namespace Loxi5\Subscription\Coupon\Contracts;
 
 interface AcceptsCoupons
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\SubscriptionBuilder;
+namespace Loxi5\Subscription\SubscriptionBuilder;
 
 use Illuminate\Http\RedirectResponse;
 use Mollie\Api\Resources\Payment;
@@ -14,14 +14,14 @@ class RedirectToCheckoutResponse extends RedirectResponse
     protected $payment;
 
     /**
-     * @var \Laravel\Cashier\SubscriptionBuilder\FirstPaymentSubscriptionBuilder
+     * @var \Loxi5\Subscription\SubscriptionBuilder\FirstPaymentSubscriptionBuilder
      */
     protected $firstPaymentSubscriptionBuilder;
 
     /**
      * @param \Mollie\Api\Resources\Payment $payment
      * @param array $context
-     * @return \Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse
+     * @return \Loxi5\Subscription\SubscriptionBuilder\RedirectToCheckoutResponse
      */
     public static function forPayment(Payment $payment, array $context = [])
     {
@@ -33,9 +33,9 @@ class RedirectToCheckoutResponse extends RedirectResponse
     }
 
     /**
-     * @param \Laravel\Cashier\SubscriptionBuilder\FirstPaymentSubscriptionBuilder $builder
+     * @param \Loxi5\Subscription\SubscriptionBuilder\FirstPaymentSubscriptionBuilder $builder
      * @param array $context
-     * @return \Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse
+     * @return \Loxi5\Subscription\SubscriptionBuilder\RedirectToCheckoutResponse
      */
     public static function forFirstPaymentSubscriptionBuilder(FirstPaymentSubscriptionBuilder $builder, array $context = [])
     {
@@ -65,7 +65,7 @@ class RedirectToCheckoutResponse extends RedirectResponse
 
     /**
      * @param \Mollie\Api\Resources\Payment $payment
-     * @return \Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse
+     * @return \Loxi5\Subscription\SubscriptionBuilder\RedirectToCheckoutResponse
      */
     protected function setPayment(Payment $payment)
     {
@@ -86,7 +86,7 @@ class RedirectToCheckoutResponse extends RedirectResponse
     }
 
     /**
-     * @param \Laravel\Cashier\SubscriptionBuilder\FirstPaymentSubscriptionBuilder $builder
+     * @param \Loxi5\Subscription\SubscriptionBuilder\FirstPaymentSubscriptionBuilder $builder
      * @return $this
      */
     protected function setBuilder(FirstPaymentSubscriptionBuilder $builder)

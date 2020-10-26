@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier\Http\Controllers;
+namespace Loxi5\Subscription\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Laravel\Cashier\Order\Order;
+use Loxi5\Subscription\Order\Order;
 use Mollie\Api\Resources\Payment;
 use Mollie\Api\Types\PaymentStatus;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,7 +41,7 @@ class WebhookController extends BaseWebhookController
 
     /**
      * @param \Mollie\Api\Resources\Payment $payment
-     * @return \Laravel\Cashier\Order\Order|null
+     * @return \Loxi5\Subscription\Order\Order|null
      */
     protected function getOrder(Payment $payment)
     {

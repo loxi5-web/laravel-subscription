@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Laravel\Cashier\Plan;
+namespace Loxi5\Subscription\Plan;
 
 use Illuminate\Support\Str;
-use Laravel\Cashier\Exceptions\PlanNotFoundException;
-use Laravel\Cashier\Order\OrderItemPreprocessorCollection as Preprocessors;
-use Laravel\Cashier\Plan\Contracts\PlanRepository;
+use Loxi5\Subscription\Exceptions\PlanNotFoundException;
+use Loxi5\Subscription\Order\OrderItemPreprocessorCollection as Preprocessors;
+use Loxi5\Subscription\Plan\Contracts\PlanRepository;
 
 class ConfigPlanRepository implements PlanRepository
 {
@@ -15,7 +15,7 @@ class ConfigPlanRepository implements PlanRepository
      * Get a plan by its name.
      *
      * @param $name
-     * @return null|\Laravel\Cashier\Plan\Contracts\Plan
+     * @return null|\Loxi5\Subscription\Plan\Contracts\Plan
      */
     public static function find(string $name)
     {
@@ -32,7 +32,7 @@ class ConfigPlanRepository implements PlanRepository
      * Get a plan by its name or throw an exception.
      *
      * @param string $name
-     * @return \Laravel\Cashier\Plan\Contracts\Plan
+     * @return \Loxi5\Subscription\Plan\Contracts\Plan
      * @throws PlanNotFoundException
      */
     public static function findOrFail(string $name)
@@ -45,7 +45,7 @@ class ConfigPlanRepository implements PlanRepository
     }
 
     /**
-     * @return \Laravel\Cashier\Plan\PlanCollection
+     * @return \Loxi5\Subscription\Plan\PlanCollection
      */
     protected static function all()
     {
@@ -63,7 +63,7 @@ class ConfigPlanRepository implements PlanRepository
      * @param string $name
      * @param array $planConfig
      * @param array $planDefaults
-     * @return \Laravel\Cashier\Plan\Plan
+     * @return \Loxi5\Subscription\Plan\Plan
      */
     public static function populatePlan(string $name, array $planConfig, array $planDefaults = [])
     {

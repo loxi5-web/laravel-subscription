@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Laravel\Cashier\Mollie;
+namespace Loxi5\Subscription\Mollie;
 
 use Money\Money;
 

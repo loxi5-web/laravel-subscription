@@ -1,8 +1,8 @@
 <?php
 
-use Laravel\Cashier\Cashier;
+use Loxi5\Subscription\Cashier;
 
-Route::namespace('\Laravel\Cashier\Http\Controllers')->group(function () {
+Route::namespace('\Loxi5\Subscription\Http\Controllers')->group(function () {
 
     Route::name('webhooks.mollie.default')->post(
         Cashier::webhookUrl(),

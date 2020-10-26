@@ -1,26 +1,26 @@
 <?php
 
-namespace Laravel\Cashier\FirstPayment\Actions;
+namespace Loxi5\Subscription\FirstPayment\Actions;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Coupon\Contracts\CouponRepository;
-use Laravel\Cashier\Coupon\RedeemedCoupon;
-use Laravel\Cashier\Order\OrderItem;
-use Laravel\Cashier\Order\OrderItemCollection;
-use Laravel\Cashier\Plan\Contracts\PlanRepository;
-use Laravel\Cashier\SubscriptionBuilder\Contracts\SubscriptionConfigurator;
-use Laravel\Cashier\SubscriptionBuilder\MandatedSubscriptionBuilder;
+use Loxi5\Subscription\Coupon\Contracts\CouponRepository;
+use Loxi5\Subscription\Coupon\RedeemedCoupon;
+use Loxi5\Subscription\Order\OrderItem;
+use Loxi5\Subscription\Order\OrderItemCollection;
+use Loxi5\Subscription\Plan\Contracts\PlanRepository;
+use Loxi5\Subscription\SubscriptionBuilder\Contracts\SubscriptionConfigurator;
+use Loxi5\Subscription\SubscriptionBuilder\MandatedSubscriptionBuilder;
 
 class StartSubscription extends BaseAction implements SubscriptionConfigurator
 {
     /** @var string */
     protected $name;
 
-    /** @var \Laravel\Cashier\Plan\Plan */
+    /** @var \Loxi5\Subscription\Plan\Plan */
     protected $plan;
 
-    /** @var \Laravel\Cashier\Coupon\Coupon */
+    /** @var \Loxi5\Subscription\Coupon\Coupon */
     protected $coupon;
 
     /** @var \Carbon\Carbon */
@@ -35,7 +35,7 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
     /** @var bool */
     protected $skipTrial;
 
-    /** @var null|\Laravel\Cashier\SubscriptionBuilder\MandatedSubscriptionBuilder */
+    /** @var null|\Loxi5\Subscription\SubscriptionBuilder\MandatedSubscriptionBuilder */
     protected $builder;
 
     /** @var CouponRepository */
@@ -47,7 +47,7 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
      * @param \Illuminate\Database\Eloquent\Model $owner
      * @param string $name
      * @param string $plan
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      */
     public function __construct(Model $owner, string $name, string $plan)
     {
@@ -132,7 +132,7 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
     /**
      * Prepare a stub of OrderItems processed with the payment.
      *
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function makeProcessedOrderItems()
     {
@@ -160,8 +160,8 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
      * Returns an OrderItemCollection ready for processing right away.
      * Another OrderItem is scheduled for the next billing cycle.
      *
-     * @return \Laravel\Cashier\Order\OrderItemCollection
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      * @throws \Throwable
      */
     public function execute()
@@ -195,7 +195,7 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
      *
      * @param  int $trialDays
      * @return $this
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      * @throws \Throwable
      */
     public function trialDays(int $trialDays)
@@ -254,7 +254,7 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
     }
 
     /**
-     * @return \Laravel\Cashier\Coupon\Coupon|null
+     * @return \Loxi5\Subscription\Coupon\Coupon|null
      */
     public function coupon()
     {
@@ -266,7 +266,7 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
      *
      * @param string $coupon
      * @return $this
-     * @throws \Laravel\Cashier\Exceptions\CouponNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\CouponNotFoundException
      * @throws \Throwable
      */
     public function withCoupon(string $coupon)
@@ -301,8 +301,8 @@ class StartSubscription extends BaseAction implements SubscriptionConfigurator
     /**
      * Retrieve the subscription builder
      *
-     * @return \Laravel\Cashier\SubscriptionBuilder\MandatedSubscriptionBuilder
-     * @throws \Throwable|\Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @return \Loxi5\Subscription\SubscriptionBuilder\MandatedSubscriptionBuilder
+     * @throws \Throwable|\Loxi5\Subscription\Exceptions\PlanNotFoundException
      */
     public function builder()
     {

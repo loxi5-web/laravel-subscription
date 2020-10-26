@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier\FirstPayment\Actions;
+namespace Loxi5\Subscription\FirstPayment\Actions;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Order\OrderItemCollection;
 
 abstract class BaseNullAction extends BaseAction
 {
@@ -24,7 +24,7 @@ abstract class BaseNullAction extends BaseAction
     }
 
     /**
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function makeProcessedOrderItems()
     {
@@ -34,7 +34,7 @@ abstract class BaseNullAction extends BaseAction
     /**
      * Execute this action and return the created OrderItem or OrderItemCollection.
      *
-     * @return \Laravel\Cashier\Order\OrderItem|\Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItem|\Loxi5\Subscription\Order\OrderItemCollection
      */
     public function execute()
     {

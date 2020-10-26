@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Cashier\Order;
+namespace Loxi5\Subscription\Order;
 
 use Illuminate\Support\Facades\Event;
-use Laravel\Cashier\Events\FirstPaymentPaid;
-use Laravel\Cashier\Events\OrderInvoiceAvailable;
-use Laravel\Cashier\Events\OrderPaymentPaid;
+use Loxi5\Subscription\Events\FirstPaymentPaid;
+use Loxi5\Subscription\Events\OrderInvoiceAvailable;
+use Loxi5\Subscription\Events\OrderPaymentPaid;
 
 class OrderInvoiceSubscriber
 {

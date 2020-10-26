@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Cashier\Http\Controllers;
+namespace Loxi5\Subscription\Http\Controllers;
 
-use Laravel\Cashier\Mollie\Contracts\GetMolliePayment;
+use Loxi5\Subscription\Mollie\Contracts\GetMolliePayment;
 use Mollie\Api\Exceptions\ApiException;
 
 abstract class BaseWebhookController
 {
     /**
-     * @var \Laravel\Cashier\Mollie\Contracts\GetMolliePayment
+     * @var \Loxi5\Subscription\Mollie\Contracts\GetMolliePayment
      */
     protected $getMolliePayment;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier\Coupon\Contracts;
+namespace Loxi5\Subscription\Coupon\Contracts;
 
-use Laravel\Cashier\Coupon\Coupon;
-use Laravel\Cashier\Exceptions\CouponNotFoundException;
+use Loxi5\Subscription\Coupon\Coupon;
+use Loxi5\Subscription\Exceptions\CouponNotFoundException;
 
 interface CouponRepository
 {

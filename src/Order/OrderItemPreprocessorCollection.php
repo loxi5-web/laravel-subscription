@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Cashier\Order;
+namespace Loxi5\Subscription\Order;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Collection as BaseCollection;
-use \Laravel\Cashier\Order\BaseOrderItemPreprocessor as Preprocessor;
+use \Loxi5\Subscription\Order\BaseOrderItemPreprocessor as Preprocessor;
 
 /**
  * A collection of instantiable OrderItemPreprocessor class strings.
  *
- * @package Laravel\Cashier\Order
+ * @package Loxi5\Subscription\Order
  */
 class OrderItemPreprocessorCollection extends Collection
 {
@@ -17,7 +17,7 @@ class OrderItemPreprocessorCollection extends Collection
      * Initialize the preprocessors from a string array.
      *
      * @param string[] $value
-     * @return \Laravel\Cashier\Order\OrderItemPreprocessorCollection
+     * @return \Loxi5\Subscription\Order\OrderItemPreprocessorCollection
      */
     public static function fromArray($value)
     {
@@ -29,8 +29,8 @@ class OrderItemPreprocessorCollection extends Collection
     }
 
     /**
-     * @param \Laravel\Cashier\Order\OrderItem $item
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @param \Loxi5\Subscription\Order\OrderItem $item
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function handle(OrderItem $item)
     {
@@ -45,7 +45,7 @@ class OrderItemPreprocessorCollection extends Collection
      * Create an OrderItemCollection from a basic Collection.
      *
      * @param \Illuminate\Support\Collection $collection
-     * @return \Laravel\Cashier\Order\OrderItemPreprocessorCollection
+     * @return \Loxi5\Subscription\Order\OrderItemPreprocessorCollection
      */
     public static function fromBaseCollection(BaseCollection $collection)
     {

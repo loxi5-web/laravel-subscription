@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Types;
+namespace Loxi5\Subscription\Types;
 
 class SubscriptionCancellationReason
 {

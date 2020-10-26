@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Cashier\Order;
+namespace Loxi5\Subscription\Order;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -8,16 +8,16 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
-use Laravel\Cashier\Credit\Credit;
-use Laravel\Cashier\Events\BalanceTurnedStale;
-use Laravel\Cashier\Events\OrderCreated;
-use Laravel\Cashier\Events\OrderPaymentFailed;
-use Laravel\Cashier\Events\OrderPaymentPaid;
-use Laravel\Cashier\Events\OrderProcessed;
-use Laravel\Cashier\Exceptions\InvalidMandateException;
-use Laravel\Cashier\MandatedPayment\MandatedPaymentBuilder;
-use Laravel\Cashier\Order\Contracts\MinimumPayment;
-use Laravel\Cashier\Traits\HasOwner;
+use Loxi5\Subscription\Credit\Credit;
+use Loxi5\Subscription\Events\BalanceTurnedStale;
+use Loxi5\Subscription\Events\OrderCreated;
+use Loxi5\Subscription\Events\OrderPaymentFailed;
+use Loxi5\Subscription\Events\OrderPaymentPaid;
+use Loxi5\Subscription\Events\OrderProcessed;
+use Loxi5\Subscription\Exceptions\InvalidMandateException;
+use Loxi5\Subscription\MandatedPayment\MandatedPaymentBuilder;
+use Loxi5\Subscription\Order\Contracts\MinimumPayment;
+use Loxi5\Subscription\Traits\HasOwner;
 use LogicException;
 use Mollie\Api\Resources\Mandate;
 use Mollie\Api\Types\PaymentStatus;
@@ -54,7 +54,7 @@ class Order extends Model
     /**
      * Creates an order from a collection of OrderItems
      *
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
      * @param array $overrides
      * @param bool $process_items
      * @return Order
@@ -107,7 +107,7 @@ class Order extends Model
     /**
      * Creates a processed order from a collection of OrderItems
      *
-     * @param \Laravel\Cashier\Order\OrderItemCollection $items
+     * @param \Loxi5\Subscription\Order\OrderItemCollection $items
      * @param array $overrides
      * @return Order
      */
@@ -129,7 +129,7 @@ class Order extends Model
     /**
      * @param $item
      * @param array $overrides
-     * @return \Laravel\Cashier\Order\Order
+     * @return \Loxi5\Subscription\Order\Order
      */
     public static function createProcessedFromItem($item, $overrides = [])
     {
@@ -140,7 +140,7 @@ class Order extends Model
      * Processes the Order into Credit, Refund or Mollie Payment - whichever is appropriate.
      *
      * @return $this
-     * @throws \Laravel\Cashier\Exceptions\InvalidMandateException
+     * @throws \Loxi5\Subscription\Exceptions\InvalidMandateException
      */
     public function processPayment()
     {
@@ -238,7 +238,7 @@ class Order extends Model
      *
      * @param null $id
      * @param null $date
-     * @return \Laravel\Cashier\Order\Invoice
+     * @return \Loxi5\Subscription\Order\Invoice
      */
     public function invoice($id = null, $date = null)
     {
@@ -485,7 +485,7 @@ class Order extends Model
 
     /**
      * @param \Mollie\Api\Resources\Mandate $mandate
-     * @throws \Laravel\Cashier\Exceptions\InvalidMandateException
+     * @throws \Loxi5\Subscription\Exceptions\InvalidMandateException
      */
     protected function guardMandate(?Mandate $mandate)
     {
@@ -495,7 +495,7 @@ class Order extends Model
     }
 
     /**
-     * @return \Laravel\Cashier\Order\OrderNumberGenerator
+     * @return \Loxi5\Subscription\Order\OrderNumberGenerator
      */
     protected static function numberGenerator()
     {

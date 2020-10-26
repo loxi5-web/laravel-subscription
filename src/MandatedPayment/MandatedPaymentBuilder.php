@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Cashier\MandatedPayment;
+namespace Loxi5\Subscription\MandatedPayment;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Cashier;
-use Laravel\Cashier\Mollie\Contracts\CreateMolliePayment;
+use Loxi5\Subscription\Cashier;
+use Loxi5\Subscription\Mollie\Contracts\CreateMolliePayment;
 use Mollie\Api\Types\SequenceType;
 use Money\Money;
 

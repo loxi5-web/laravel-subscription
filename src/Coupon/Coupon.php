@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Cashier\Coupon;
+namespace Loxi5\Subscription\Coupon;
 
-use Laravel\Cashier\Coupon\Contracts\AcceptsCoupons;
-use Laravel\Cashier\Coupon\Contracts\CouponHandler;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons;
+use Loxi5\Subscription\Coupon\Contracts\CouponHandler;
+use Loxi5\Subscription\Order\OrderItemCollection;
 
 class Coupon
 {
     /** @var string */
     protected $name;
 
-    /** @var \Laravel\Cashier\Coupon\Contracts\CouponHandler */
+    /** @var \Loxi5\Subscription\Coupon\Contracts\CouponHandler */
     protected $handler;
 
     /** @var array */
@@ -24,7 +24,7 @@ class Coupon
      * Coupon constructor.
      *
      * @param string $name
-     * @param \Laravel\Cashier\Coupon\Contracts\CouponHandler $handler
+     * @param \Loxi5\Subscription\Coupon\Contracts\CouponHandler $handler
      * @param array $context
      */
     public function __construct(string $name, CouponHandler $handler, array $context = [])
@@ -44,7 +44,7 @@ class Coupon
     }
 
     /**
-     * @return \Laravel\Cashier\Coupon\Contracts\CouponHandler
+     * @return \Loxi5\Subscription\Coupon\Contracts\CouponHandler
      */
     public function handler()
     {
@@ -71,7 +71,7 @@ class Coupon
 
     /**
      * @param $times
-     * @return \Laravel\Cashier\Coupon\Coupon
+     * @return \Loxi5\Subscription\Coupon\Coupon
      * @throws \LogicException|\Throwable
      */
     public function withTimes($times)
@@ -84,8 +84,8 @@ class Coupon
     }
 
     /**
-     * @param \Laravel\Cashier\Coupon\Contracts\AcceptsCoupons $model
-     * @return \Laravel\Cashier\Coupon\RedeemedCoupon
+     * @param \Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons $model
+     * @return \Loxi5\Subscription\Coupon\RedeemedCoupon
      */
     public function redeemFor(AcceptsCoupons $model)
     {
@@ -95,8 +95,8 @@ class Coupon
     /**
      * Check if the coupon can be applied to the model
      *
-     * @param \Laravel\Cashier\Coupon\Contracts\AcceptsCoupons $model
-     * @throws \Throwable|\Laravel\Cashier\Exceptions\CouponException
+     * @param \Loxi5\Subscription\Coupon\Contracts\AcceptsCoupons $model
+     * @throws \Throwable|\Loxi5\Subscription\Exceptions\CouponException
      */
     public function validateFor(AcceptsCoupons $model)
     {

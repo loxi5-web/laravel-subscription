@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Laravel\Cashier\Plan\Contracts;
+namespace Loxi5\Subscription\Plan\Contracts;
 
-use Laravel\Cashier\Order\OrderItemPreprocessorCollection;
+use Loxi5\Subscription\Order\OrderItemPreprocessorCollection;
 use Money\Money;
 
 interface Plan
@@ -95,13 +95,13 @@ interface Plan
     public function setFirstPaymentWebhookUrl(string $webhookUrl);
 
     /**
-     * @return \Laravel\Cashier\Order\OrderItemPreprocessorCollection
+     * @return \Loxi5\Subscription\Order\OrderItemPreprocessorCollection
      */
     public function orderItemPreprocessors();
 
     /**
-     * @param \Laravel\Cashier\Order\OrderItemPreprocessorCollection $preprocessors
-     * @return \Laravel\Cashier\Plan\Contracts\Plan
+     * @param \Loxi5\Subscription\Order\OrderItemPreprocessorCollection $preprocessors
+     * @return \Loxi5\Subscription\Plan\Contracts\Plan
      */
     public function setOrderItemPreprocessors(OrderItemPreprocessorCollection $preprocessors);
 }

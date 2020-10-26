@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Cashier\Console\Commands;
+namespace Loxi5\Subscription\Console\Commands;
 
 use Illuminate\Console\Command;
-use Laravel\Cashier\Cashier;
+use Loxi5\Subscription\Cashier;
 
 class CashierRun extends Command
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Laravel\Cashier\Mollie;
+namespace Loxi5\Subscription\Mollie;
 
 use Mollie\Api\Resources\Payment;
-use Laravel\Cashier\Mollie\Contracts\GetMolliePayment as Contract;
+use Loxi5\Subscription\Mollie\Contracts\GetMolliePayment as Contract;
 
 
 class GetMolliePayment extends BaseMollieInteraction implements Contract

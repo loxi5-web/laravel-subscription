@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Cashier\FirstPayment;
+namespace Loxi5\Subscription\FirstPayment;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Laravel\Cashier\Events\MandateUpdated;
-use Laravel\Cashier\FirstPayment\Actions\BaseAction;
-use Laravel\Cashier\Order\Order;
-use Laravel\Cashier\Order\OrderItem;
-use Laravel\Cashier\Order\OrderItemCollection;
+use Loxi5\Subscription\Events\MandateUpdated;
+use Loxi5\Subscription\FirstPayment\Actions\BaseAction;
+use Loxi5\Subscription\Order\Order;
+use Loxi5\Subscription\Order\OrderItem;
+use Loxi5\Subscription\Order\OrderItemCollection;
 use Mollie\Api\Resources\Payment;
 
 class FirstPaymentHandler
@@ -37,7 +37,7 @@ class FirstPaymentHandler
     /**
      * Execute all actions for the mandate payment and return the created Order.
      *
-     * @return \Laravel\Cashier\Order\Order
+     * @return \Loxi5\Subscription\Order\Order
      */
     public function execute()
     {
@@ -92,7 +92,7 @@ class FirstPaymentHandler
      * Execute the Actions and return a collection of the resulting OrderItems.
      * These OrderItems are already paid for using the mandate payment.
      *
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     protected function executeActions()
     {

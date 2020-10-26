@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Cashier\SubscriptionBuilder;
+namespace Loxi5\Subscription\SubscriptionBuilder;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\FirstPayment\Actions\ActionCollection;
-use Laravel\Cashier\FirstPayment\Actions\AddGenericOrderItem;
-use Laravel\Cashier\FirstPayment\Actions\ApplySubscriptionCouponToPayment;
-use Laravel\Cashier\FirstPayment\Actions\StartSubscription;
-use Laravel\Cashier\FirstPayment\FirstPaymentBuilder;
-use Laravel\Cashier\Plan\Contracts\PlanRepository;
-use Laravel\Cashier\Plan\Plan;
-use Laravel\Cashier\SubscriptionBuilder\Contracts\SubscriptionBuilder as Contract;
+use Loxi5\Subscription\FirstPayment\Actions\ActionCollection;
+use Loxi5\Subscription\FirstPayment\Actions\AddGenericOrderItem;
+use Loxi5\Subscription\FirstPayment\Actions\ApplySubscriptionCouponToPayment;
+use Loxi5\Subscription\FirstPayment\Actions\StartSubscription;
+use Loxi5\Subscription\FirstPayment\FirstPaymentBuilder;
+use Loxi5\Subscription\Plan\Contracts\PlanRepository;
+use Loxi5\Subscription\Plan\Plan;
+use Loxi5\Subscription\SubscriptionBuilder\Contracts\SubscriptionBuilder as Contract;
 
 /**
  * Creates and configures a Mollie first payment to create a new mandate via Mollie's checkout
@@ -21,12 +21,12 @@ use Laravel\Cashier\SubscriptionBuilder\Contracts\SubscriptionBuilder as Contrac
 class FirstPaymentSubscriptionBuilder implements Contract
 {
     /**
-     * @var \Laravel\Cashier\FirstPayment\FirstPaymentBuilder
+     * @var \Loxi5\Subscription\FirstPayment\FirstPaymentBuilder
      */
     protected $firstPaymentBuilder;
 
     /**
-     * @var \Laravel\Cashier\FirstPayment\Actions\StartSubscription
+     * @var \Loxi5\Subscription\FirstPayment\Actions\StartSubscription
      */
     protected $startSubscription;
 
@@ -59,7 +59,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
      * @param string $name
      * @param string $plan
      * @param array $paymentOptions
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      */
     public function __construct(Model $owner, string $name, string $plan, $paymentOptions = [])
     {
@@ -76,8 +76,8 @@ class FirstPaymentSubscriptionBuilder implements Contract
     /**
      * Create a new subscription. Returns a redirect to Mollie's checkout screen.
      *
-     * @return \Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse
-     * @throws \Laravel\Cashier\Exceptions\CouponException|\Throwable
+     * @return \Loxi5\Subscription\SubscriptionBuilder\RedirectToCheckoutResponse
+     * @throws \Loxi5\Subscription\Exceptions\CouponException|\Throwable
      */
     public function create()
     {
@@ -116,7 +116,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
      *
      * @param  int $trialDays
      * @return $this
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      * @throws \Throwable
      */
     public function trialDays(int $trialDays)
@@ -129,7 +129,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
      *
      * @param  Carbon $trialUntil
      * @return $this
-     * @throws \Laravel\Cashier\Exceptions\PlanNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\PlanNotFoundException
      * @throws \Throwable
      */
     public function trialUntil(Carbon $trialUntil)
@@ -143,7 +143,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
     /**
      * Force the trial to end immediately.
      *
-     * @return \Laravel\Cashier\SubscriptionBuilder\Contracts\SubscriptionBuilder|void
+     * @return \Loxi5\Subscription\SubscriptionBuilder\Contracts\SubscriptionBuilder|void
      */
     public function skipTrial()
     {
@@ -173,7 +173,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
      *
      * @param string $coupon
      * @return $this
-     * @throws \Laravel\Cashier\Exceptions\CouponNotFoundException
+     * @throws \Loxi5\Subscription\Exceptions\CouponNotFoundException
      */
     public function withCoupon(string $coupon)
     {
@@ -196,7 +196,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
     }
 
     /**
-     * @return \Laravel\Cashier\FirstPayment\FirstPaymentBuilder
+     * @return \Loxi5\Subscription\FirstPayment\FirstPaymentBuilder
      */
     public function getMandatePaymentBuilder()
     {
@@ -204,7 +204,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
     }
 
     /**
-     * @return \Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse
+     * @return \Loxi5\Subscription\SubscriptionBuilder\RedirectToCheckoutResponse
      */
     protected function redirectToCheckout()
     {
@@ -212,7 +212,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
     }
 
     /**
-     * @throws \Laravel\Cashier\Exceptions\CouponException|\Throwable
+     * @throws \Loxi5\Subscription\Exceptions\CouponException|\Throwable
      */
     protected function validateCoupon()
     {
@@ -228,7 +228,7 @@ class FirstPaymentSubscriptionBuilder implements Contract
     /**
      * @param \Illuminate\Database\Eloquent\Model $owner
      * @param array $paymentOptions
-     * @return \Laravel\Cashier\FirstPayment\FirstPaymentBuilder
+     * @return \Loxi5\Subscription\FirstPayment\FirstPaymentBuilder
      */
     protected function initializeFirstPaymentBuilder(Model $owner, $paymentOptions = [])
     {

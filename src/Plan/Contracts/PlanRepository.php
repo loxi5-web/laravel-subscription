@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Laravel\Cashier\Plan\Contracts;
+namespace Loxi5\Subscription\Plan\Contracts;
 
 interface PlanRepository
 {
     /**
      * @param string $name
-     * @return null|\Laravel\Cashier\Plan\Contracts\Plan
+     * @return null|\Loxi5\Subscription\Plan\Contracts\Plan
      */
     public static function find(string $name);
 
     /**
      * @param string $name
-     * @return \Laravel\Cashier\Plan\Contracts\Plan
+     * @return \Loxi5\Subscription\Plan\Contracts\Plan
      */
     public static function findOrFail(string $name);
 }

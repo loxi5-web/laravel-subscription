@@ -136,11 +136,11 @@
                                 <td>
                                     {{ $item->description }}
                                     @if($item->quantity > 1)
-                                        <br>{{ $item->quantity }} x {{ Laravel\Cashier\Cashier::formatAmount($item->getUnitPrice()) }}
+                                        <br>{{ $item->quantity }} x {{ Loxi5\Subscription\Cashier::formatAmount($item->getUnitPrice()) }}
                                     @endif
                                 </td>
                                 <td style="text-align: right;">
-                                    {{ Laravel\Cashier\Cashier::formatAmount($item->getSubtotal()) }}
+                                    {{ Loxi5\Subscription\Cashier::formatAmount($item->getSubtotal()) }}
                                 </td>
                                 <td>
                                     {{ $item->getTaxPercentage() }}%

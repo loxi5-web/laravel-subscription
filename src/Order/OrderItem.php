@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Cashier\Order;
+namespace Loxi5\Subscription\Order;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
-use Laravel\Cashier\Order\Contracts\InteractsWithOrderItems;
-use Laravel\Cashier\Order\Contracts\InvoicableItem;
-use Laravel\Cashier\Traits\FormatsAmount;
-use Laravel\Cashier\Traits\HasOwner;
+use Loxi5\Subscription\Order\Contracts\InteractsWithOrderItems;
+use Loxi5\Subscription\Order\Contracts\InvoicableItem;
+use Loxi5\Subscription\Traits\FormatsAmount;
+use Loxi5\Subscription\Traits\HasOwner;
 
 /**
  * @property InteractsWithOrderItems orderable
@@ -165,7 +165,7 @@ class OrderItem extends Model implements InvoicableItem
     }
 
     /**
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function toCollection()
     {
@@ -175,7 +175,7 @@ class OrderItem extends Model implements InvoicableItem
     /**
      * Called right before processing the item into an order.
      *
-     * @return \Laravel\Cashier\Order\OrderItemCollection
+     * @return \Loxi5\Subscription\Order\OrderItemCollection
      */
     public function preprocess()
     {

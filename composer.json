@@ -1,8 +1,8 @@
 {
-    "name": "laravel/cashier-mollie",
-    "description": "Laravel Cashier provides an expressive, fluent interface to Mollie's subscription billing services.",
+    "name": "loxi5-web/laravel-subscription",
+    "description": "Loxi5 Subscription provides a subscription system without payment gateway.",
     "keywords": [
-        "mollie",
+        "loxi5",
         "laravel",
         "subscriptions",
         "recurring",
@@ -13,9 +13,15 @@
         "debit card",
         "Europe"
     ],
-    "homepage": "https://github.com/mollie/laravel-cashier",
+    "homepage": "https://github.com/loxi5-web/laravel-subscription",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Loxi5 Web Development",
+            "email": "support@loxi5.com",
+            "homepage": "https://www.loxi5.com",
+            "role": "Owner"
+        },
         {
             "name": "Mollie.com",
             "email": "support@mollie.com",
@@ -36,7 +42,6 @@
         "dompdf/dompdf": "^0.8.0",
         "illuminate/database": "^6.0|^7.0|^8.0",
         "illuminate/support": "^6.0|^7.0|^8.0",
-        "mollie/laravel-mollie": "^2.9",
         "moneyphp/money": "^3.2",
         "nesbot/carbon": "^2.0"
     },
@@ -52,18 +57,18 @@
             "src/Helpers/helpers.php"
         ],
         "psr-4": {
-            "Laravel\\Cashier\\": "src"
+            "Loxi5\\Subscription\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Laravel\\Cashier\\Tests\\": "tests"
+            "Loxi5\\Subscription\\Tests\\": "tests"
         }
     },
     "extra": {
-        "laravel": {
+        "loxi5-web": {
             "providers": [
-                "Laravel\\Cashier\\CashierServiceProvider"
+                "Loxi5\\Subscription\\SubscriptionServiceProvider"
             ]
         }
     },

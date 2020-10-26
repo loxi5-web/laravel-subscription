@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Laravel\Cashier\Mollie\Contracts;
+namespace Loxi5\Subscription\Mollie\Contracts;
 
 use Mollie\Api\Resources\Mandate;
 
